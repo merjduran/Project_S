@@ -10,8 +10,7 @@ class ProductPage{
     }
 
     async navigateToCartPage(){
-        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();  
-        //await this.page.waitForLoadState('networkidle', { timeout: 10000 });  
+        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();   
     }
 
     async ensureProductPage(){
