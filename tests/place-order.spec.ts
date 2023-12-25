@@ -24,7 +24,6 @@ test('Place order with incomplete checkout details', async ({ page }) => {
   const cart = new CartPage(page)
   await cart.ensureCartPage('Nokia lumia 1520')
   await cart.placeOrder("", "", "", "", "", "", total)
-  await cart.ensurePrompt()
   await page.close()
 });
 

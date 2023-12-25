@@ -1,5 +1,4 @@
 const {expect} = require('@playwright/test');
-const { text } = require('stream/consumers');
 
 class CartPage{
     constructor(page){
@@ -44,13 +43,6 @@ class CartPage{
 
     async ensureOrder(){
         await expect(await this.page.locator('.lead').isVisible).toBeTruthy()
-    }
-
-    async ensurePrompt(){
-        await this.page.on('dialog', async (dialog) => {
-            console.log('Dialog message:', dialog.message());
-            await dialog.dismiss(); // You can accept, dismiss, or respond to the dialog as needed
-          });
     }
 
 }module.exports = {CartPage}

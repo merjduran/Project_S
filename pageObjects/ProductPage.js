@@ -23,7 +23,6 @@ class ProductPage{
         await expect(await this.page.locator('.name')).toContainText(productName)
         await expect(await this.page.locator('.description').isVisible()).toBeTruthy()
         await this.page.getByRole('link', { name: 'Add to cart' }).click();
-
         return this.getPrice()
     }
 
