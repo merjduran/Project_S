@@ -6,8 +6,8 @@ class CartPage{
     }
 
     async ensureCartPage(productName){
-        expect(await this.page.locator(".table-responsive").isVisible()).toBeTruthy()
-        expect(await this.page.locator('tr:has-text("'+productName+'")').isVisible()).toBeTruthy();
+        expect(await this.page.locator(".table-responsive").isVisible({ timeout: 10000 })).toBeTruthy()
+        expect(await this.page.locator('tr:has-text("'+productName+'")').isVisible({ timeout: 10000 })).toBeTruthy();
     }
 
     async placeOrder(Name, Country, City, CreditCard, Month, Year, total){
