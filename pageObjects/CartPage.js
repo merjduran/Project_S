@@ -6,7 +6,7 @@ class CartPage{
     }
 
     async ensureCartPage(productName){
-        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForLoadState('networkidle', { timeout: 10000 });
         expect(await this.page.locator(".table-responsive").isVisible()).toBeTruthy()
         expect(await this.page.locator('tr:has-text("'+productName+'")').isVisible()).toBeTruthy();
     }
