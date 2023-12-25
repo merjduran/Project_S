@@ -10,7 +10,7 @@ class ProductPage{
     }
 
     async navigateToCartPage(){
-        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();   
+        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();       
     }
 
     async ensureProductPage(){
@@ -20,6 +20,7 @@ class ProductPage{
 
     async addProductToCart(productName){
         await this.page.locator('.hrefch:text("'+productName+'")').click()
+        await this.page.waitForLoadState('networkidle'); 
         await expect(await this.page.locator('.name')).toContainText(productName)
         await expect(await this.page.locator('.description').isVisible()).toBeTruthy()
         await this.page.getByRole('link', { name: 'Add to cart' }).click();
