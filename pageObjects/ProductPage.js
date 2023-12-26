@@ -11,7 +11,8 @@ class ProductPage{
 
     async navigateToCartPage(){
         await this.page.getByRole('link', { name: 'Cart', exact: true }).click();
-        await this.page.locator('tbody').waitFor({state: "visible"})
+        await this.page.waitForLoadState('domcontentloaded');
+        //await this.page.locator('tbody').waitFor({state: "visible"})
 
     }
 
