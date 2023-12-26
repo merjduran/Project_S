@@ -6,7 +6,7 @@ class CartPage{
     }
 
     async ensureProduct(productName){
-        await this.page.locator('tr:has-text("'+productName+'")').isVisible()
+        expect(await this.page.locator('tr:has-text("'+productName+'")').isVisible()).toBeTruthy()
 
     }
 
