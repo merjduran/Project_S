@@ -22,7 +22,6 @@ class ProductPage{
     async selectProduct(productName){
         await this.page.locator('.hrefch:text("'+productName+'")').click()
         await this.page.waitForLoadState('networkidle');
-        //await this.page.locator('.product-content ').waitFor({state: "visible"})
         await expect(await this.page.locator('.name')).toContainText(productName)
         await expect(await this.page.locator('.description').isVisible()).toBeTruthy()
         return this.getPrice()
