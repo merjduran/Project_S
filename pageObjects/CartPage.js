@@ -5,9 +5,7 @@ class CartPage{
         this.page = page
     }
 
-    async ensureCartPage(productName){
-        await this.page.waitForLoadState('networkidle'); 
-        expect(await this.page.locator(".table-responsive").isVisible()).toBeTruthy()
+    async ensureProduct(productName){
         expect(await this.page.locator('tr:has-text("'+productName+'")').isVisible()).toBeTruthy();
     }
 

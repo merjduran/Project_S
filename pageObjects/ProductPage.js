@@ -10,7 +10,9 @@ class ProductPage{
     }
 
     async navigateToCartPage(){
-        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();       
+        await this.page.getByRole('link', { name: 'Cart', exact: true }).click();
+        await this.page.locator('tbody').waitFor({state: "visible"})
+
     }
 
     async ensureProductPage(){
@@ -18,13 +20,16 @@ class ProductPage{
         expect(await this.page.locator('.list-group').isVisible()).toBeTruthy()
     }
 
-    async addProductToCart(productName){
+    async selectProduct(productName){
         await this.page.locator('.hrefch:text("'+productName+'")').click()
-        await this.page.waitForLoadState('networkidle'); 
+        await this.page.locator('.product-content ').waitFor({state: "visible"})
         await expect(await this.page.locator('.name')).toContainText(productName)
         await expect(await this.page.locator('.description').isVisible()).toBeTruthy()
-        await this.page.getByRole('link', { name: 'Add to cart' }).click();
         return this.getPrice()
+    }
+
+    async addProductToCart(){
+        await this.page.getByRole('link', { name: 'Add to cart' }).click();
     }
 
     async getPrice(){
