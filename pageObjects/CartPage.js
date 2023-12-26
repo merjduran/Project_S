@@ -28,7 +28,7 @@ class CartPage{
     async ensureTotal(expectedTotal){
         const elem = await this.page.locator('#totalm')
         const actualTotal = (await elem.textContent()).split(' ')[1];
-        expect(actualTotal).toEqual(expectedTotal)
+        expect(parseFloat(actualTotal)).toEqual(expectedTotal)
     }
 
     async addPaymentDetails(Name, Country, City, CreditCard, Month, Year){

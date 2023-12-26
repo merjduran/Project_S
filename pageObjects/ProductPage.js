@@ -5,8 +5,13 @@ class ProductPage{
         this.page = page
     }
 
-    async navigateToHome(){
+    async navigate(){
         await this.page.goto('/')
+    }
+    
+    async navigateToHomePage(){
+        await this.page.getByRole('link', { name:'Home',}).click();
+
     }
 
     async navigateToCartPage(){
