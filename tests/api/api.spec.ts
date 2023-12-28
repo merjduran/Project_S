@@ -1,4 +1,5 @@
 import {test, expect} from '@playwright/test'
+test.use({ baseURL: 'https://sertis-qa.glitch.me'});
 
    test("Ensure each valid user id returns complete user details", async({request})=> {
         const response = await request.get(`/user/ids`)        
