@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "tests:api": "playwright test --config=api.config.ts --project=Chromium"
+  },
   "keywords": [],
   "author": "MER BOY ANTHONY DURAN",
   "license": "ISC",
