@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
-import { ProductPage } from '../pageObjects/ProductPage';
-import { CartPage } from '../pageObjects/CartPage';
+import { ProductPage } from '../../pageObjects/ProductPage';
+import { CartPage } from '../../pageObjects/CartPage';
 
 test('Place order for single product with complete checkout details', async ({ page }) => {
     const product = new ProductPage(page);
